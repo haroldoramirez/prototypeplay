@@ -238,7 +238,7 @@ InfoBox.prototype.getCloseBoxImg_ = function () {
   if (this.closeBoxURL_ !== "") {
 
     img  = "<img";
-    img += " app='" + this.closeBoxURL_ + "'";
+    img += " src='" + this.closeBoxURL_ + "'";
     img += " align=right"; // Do this because Opera chokes on style='float: right;'
     img += " style='";
     img += " position: relative;"; // Required by MSIE

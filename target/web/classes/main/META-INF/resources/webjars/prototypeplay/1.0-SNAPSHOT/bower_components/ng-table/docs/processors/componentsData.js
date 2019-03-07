@@ -39,7 +39,7 @@ module.exports = function componentsDataProcessor() {
                     url: '/docs/api',
                     items: apiParts
                 },
-                // note: runnable examples are not yet implemented (instead we link to external app site)
+                // note: runnable examples are not yet implemented (instead we link to external demo site)
                 {
                     title: 'Examples',
                     name: 'examples',

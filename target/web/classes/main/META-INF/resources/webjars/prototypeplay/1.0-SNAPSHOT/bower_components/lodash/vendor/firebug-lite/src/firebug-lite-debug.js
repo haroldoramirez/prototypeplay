@@ -24316,13 +24316,13 @@ Firebug.HTML = extend(Firebug.Module,
                 {
 
                     if(document.all){
-                        var app = node.innerHTML+'\n';
+                        var src = node.innerHTML+'\n';
 
                     }else {
-                        var app = '\n'+node.innerHTML+'\n';
+                        var src = '\n'+node.innerHTML+'\n';
                     }
 
-                    var match = app.match(/\n/g);
+                    var match = src.match(/\n/g);
                     var num = match ? match.length : 0;
                     var s = [], sl = 0;
 
@@ -24333,7 +24333,7 @@ Firebug.HTML = extend(Firebug.Module,
                     html.push('&gt;</div><div class="nodeGroup"><div class="nodeChildren"><div class="lineNo">',
                             s.join(''),
                             '</div><pre class="nodeCode">',
-                            escapeHTML(app),
+                            escapeHTML(src),
                             '</pre>',
                             '</div><div class="objectBox-element">&lt;/<span class="nodeTag">',
                             nodeName,
@@ -25161,7 +25161,7 @@ Firebug.InfoTip = extend(Firebug.Module,
             {
                 collapse(img, true);
                 collapse(bgImg, false);
-                bgImg.style.background = "url(" + img.app + ") repeat-x";
+                bgImg.style.background = "url(" + img.src + ") repeat-x";
                 bgImg.style.width = maxWidth + "px";
                 if (h > maxHeight)
                     bgImg.style.height = maxHeight + "px";
@@ -25172,7 +25172,7 @@ Firebug.InfoTip = extend(Firebug.Module,
             {
                 collapse(img, true);
                 collapse(bgImg, false);
-                bgImg.style.background = "url(" + img.app + ") repeat-y";
+                bgImg.style.background = "url(" + img.src + ") repeat-y";
                 bgImg.style.height = maxHeight + "px";
                 if (w > maxWidth)
                     bgImg.style.width = maxWidth + "px";
@@ -25183,7 +25183,7 @@ Firebug.InfoTip = extend(Firebug.Module,
             {
                 collapse(img, true);
                 collapse(bgImg, false);
-                bgImg.style.background = "url(" + img.app + ") repeat";
+                bgImg.style.background = "url(" + img.src + ") repeat";
                 bgImg.style.width = maxWidth + "px";
                 bgImg.style.height = maxHeight + "px";
             }

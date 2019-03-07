@@ -69,28 +69,28 @@ const AUTOPREFIXER_BROWSERS = [
 
 const SOURCES = [
   // Component handler
-  'app/mdlComponentHandler.js',
+  'src/mdlComponentHandler.js',
   // Polyfills/dependencies
-  'app/third_party/**/*.js',
+  'src/third_party/**/*.js',
   // Base components
-  'app/button/button.js',
-  'app/checkbox/checkbox.js',
-  'app/icon-toggle/icon-toggle.js',
-  'app/menu/menu.js',
-  'app/progress/progress.js',
-  'app/radio/radio.js',
-  'app/slider/slider.js',
-  'app/snackbar/snackbar.js',
-  'app/spinner/spinner.js',
-  'app/switch/switch.js',
-  'app/tabs/tabs.js',
-  'app/textfield/textfield.js',
-  'app/tooltip/tooltip.js',
+  'src/button/button.js',
+  'src/checkbox/checkbox.js',
+  'src/icon-toggle/icon-toggle.js',
+  'src/menu/menu.js',
+  'src/progress/progress.js',
+  'src/radio/radio.js',
+  'src/slider/slider.js',
+  'src/snackbar/snackbar.js',
+  'src/spinner/spinner.js',
+  'src/switch/switch.js',
+  'src/tabs/tabs.js',
+  'src/textfield/textfield.js',
+  'src/tooltip/tooltip.js',
   // Complex components (which reuse base components)
-  'app/layout/layout.js',
-  'app/data-table/data-table.js',
+  'src/layout/layout.js',
+  'src/data-table/data-table.js',
   // And finally, the ripples
-  'app/ripple/ripple.js'
+  'src/ripple/ripple.js'
 ];
 
 // ***** Development tasks ****** //
@@ -98,7 +98,7 @@ const SOURCES = [
 // Lint JavaScript
 gulp.task('lint', () => {
   return gulp.src([
-      'app/**/*.js',
+      'src/**/*.js',
       'gulpfile.babel.js'
     ])
     .pipe(reload({stream: true, once: true}))
@@ -115,7 +115,7 @@ gulp.task('lint', () => {
 // Optimize Images
 // TODO: Update image paths in final CSS to match root/images
 gulp.task('images', () => {
-  return gulp.src('app/**/*.{svg,png,jpg}')
+  return gulp.src('src/**/*.{svg,png,jpg}')
     .pipe($.flatten())
     .pipe($.cache($.imagemin({
       progressive: true,
@@ -127,7 +127,7 @@ gulp.task('images', () => {
 
 // Compile and Automatically Prefix Stylesheets (dev)
 gulp.task('styles:dev', () => {
-  return gulp.src('app/**/*.scss')
+  return gulp.src('src/**/*.scss')
     .pipe($.sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
@@ -142,8 +142,8 @@ gulp.task('styles:dev', () => {
 
 // Compile and Automatically Prefix Stylesheet Templates (production)
 gulp.task('styletemplates', () => {
-  // For best performance, don't add Sass partials to `gulp.app`
-  return gulp.src('app/template.scss')
+  // For best performance, don't add Sass partials to `gulp.src`
+  return gulp.src('src/template.scss')
     // Generate Source Maps
     .pipe($.sourcemaps.init())
     .pipe($.sass({
@@ -167,8 +167,8 @@ gulp.task('styletemplates', () => {
 
 // Compile and Automatically Prefix Stylesheets (production)
 gulp.task('styles', () => {
-  // For best performance, don't add Sass partials to `gulp.app`
-  return gulp.src('app/material-design-lite.scss')
+  // For best performance, don't add Sass partials to `gulp.src`
+  return gulp.src('src/material-design-lite.scss')
     // Generate Source Maps
     .pipe($.sourcemaps.init())
     .pipe($.sass({
@@ -193,7 +193,7 @@ gulp.task('styles', () => {
 
 // Only generate CSS styles for the MDL grid
 gulp.task('styles-grid', () => {
-  return gulp.src('app/material-design-lite-grid.scss')
+  return gulp.src('src/material-design-lite-grid.scss')
     .pipe($.sass({
       precision: 10,
       onError: console.error.bind(console, 'Sass error:')
@@ -296,8 +296,8 @@ gulp.task('mocha', ['styles'], () => {
 
 gulp.task('mocha:closure', ['closure'], () => {
   return gulp.src('test/index.html')
-    .pipe($.replace('app="../dist/material.js"',
-        'app="../dist/material.closure.min.js"'))
+    .pipe($.replace('src="../dist/material.js"',
+        'src="../dist/material.closure.min.js"'))
     .pipe($.rename('temp.html'))
     .pipe(gulp.dest('test'))
     .pipe($.mochaPhantomjs({reporter: 'tap'}))
@@ -350,10 +350,10 @@ function applyTemplate() {
 }
 
 /**
- * Generates an index.html file for each README in MDL/app directory.
+ * Generates an index.html file for each README in MDL/src directory.
  */
 gulp.task('components', ['demos'], () => {
-  return gulp.src('app/**/README.md', {base: 'src'})
+  return gulp.src('src/**/README.md', {base: 'src'})
     // Add basic front matter.
     .pipe($.header('---\nlayout: component\nbodyclass: component\ninclude_prefix: ../../\n---\n\n'))
     .pipe($.frontMatter({
@@ -373,13 +373,13 @@ gulp.task('components', ['demos'], () => {
 });
 
 /**
- * Copies app files from MDL/app directory.
+ * Copies demo files from MDL/src directory.
  */
 gulp.task('demoresources', () => {
   return gulp.src([
-      'app/**/demos.css',
-      'app/**/app.css',
-      'app/**/app.js'
+      'src/**/demos.css',
+      'src/**/demo.css',
+      'src/**/demo.js'
     ], {base: 'src'})
     .pipe($.if('*.scss', $.sass({
       precision: 10,
@@ -391,7 +391,7 @@ gulp.task('demoresources', () => {
 });
 
 /**
- * Generates app files for testing made of all the snippets and the app file
+ * Generates demo files for testing made of all the snippets and the demo file
  * put together.
  */
 gulp.task('demos', ['demoresources'], () => {
@@ -408,9 +408,9 @@ gulp.task('demos', ['demoresources'], () => {
         path.join('src', component, 'snippets', '*.html'),
         path.join('src', component, 'demo.html')
       ])
-      .pipe($.concat('/app.html'))
+      .pipe($.concat('/demo.html'))
       // Add basic front matter.
-      .pipe($.header('---\nlayout: app\nbodyclass: app\ninclude_prefix: ../../\n---\n\n'))
+      .pipe($.header('---\nlayout: demo\nbodyclass: demo\ninclude_prefix: ../../\n---\n\n'))
       .pipe($.frontMatter({
         property: 'page',
         remove: true
@@ -463,7 +463,7 @@ gulp.task('assets', () => {
   return gulp.src([
       'docs/_assets/**/*',
       'node_modules/clippy/build/clippy.swf',
-      'node_modules/swfobject-npm/swfobject/app/swfobject.js',
+      'node_modules/swfobject-npm/swfobject/src/swfobject.js',
       'node_modules/prismjs/prism.js',
       'node_modules/prismjs/components/prism-markup.min.js',
       'node_modules/prismjs/components/prism-javascript.min.js',
@@ -491,13 +491,13 @@ gulp.task('assets', () => {
  * Defines the list of resources to watch for changes.
  */
 function watch() {
-  gulp.watch(['app/**/*.js', '!app/**/README.md'],
+  gulp.watch(['src/**/*.js', '!src/**/README.md'],
     ['scripts', 'demos', 'components', reload]);
-  gulp.watch(['app/**/*.{scss,css}'],
+  gulp.watch(['src/**/*.{scss,css}'],
     ['styles', 'styles-grid', 'styletemplates', reload]);
-  gulp.watch(['app/**/*.html'], ['pages', reload]);
-  gulp.watch(['app/**/*.{svg,png,jpg}'], ['images', reload]);
-  gulp.watch(['app/**/README.md'], ['pages', reload]);
+  gulp.watch(['src/**/*.html'], ['pages', reload]);
+  gulp.watch(['src/**/*.{svg,png,jpg}'], ['images', reload]);
+  gulp.watch(['src/**/README.md'], ['pages', reload]);
   gulp.watch(['templates/**/*'], ['templates', reload]);
   gulp.watch(['docs/**/*'], ['pages', 'assets', reload]);
   gulp.watch(['package.json', 'bower.json', 'LICENSE'], ['metadata']);

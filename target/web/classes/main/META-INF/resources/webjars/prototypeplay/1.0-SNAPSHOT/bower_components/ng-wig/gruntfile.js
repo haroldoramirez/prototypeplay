@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
-  var srcPath = './app',
+  var srcPath = './src',
       distPath = './dist';
 
   grunt.initConfig({
@@ -13,7 +13,7 @@ module.exports = function(grunt) {
     copy: {
       dev: {
         files: [
-          {src: 'bower_components/angular/angular.js', dest:'app/libs/angular/angular.js'}
+          {src: 'bower_components/angular/angular.js', dest:'src/libs/angular/angular.js'}
         ]
       },
       dist: {
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
       }
     },
     clean:{
-      libs:  ['app/libs/**/*'],
+      libs:  ['src/libs/**/*'],
       bower: ['bower_components'],
       target: ['dist/**']
     },
@@ -76,14 +76,14 @@ module.exports = function(grunt) {
     },
     watch: {
       templates: {
-        files:['app/javascript/app/**/views/**/*.html'],
+        files:['src/javascript/app/**/views/**/*.html'],
         tasks: ['html2js']
       }
     },
     bump: {
       options: {
-        files: ['package.json', 'bower.json', 'dist/ng-wig.js', 'app/javascript/app/ng-wig/ng-wig.js'],
-        commitFiles: ['package.json', 'bower.json', 'dist/**', 'app/javascript/app/ng-wig/ng-wig.js'],
+        files: ['package.json', 'bower.json', 'dist/ng-wig.js', 'src/javascript/app/ng-wig/ng-wig.js'],
+        commitFiles: ['package.json', 'bower.json', 'dist/**', 'src/javascript/app/ng-wig/ng-wig.js'],
         createTag: true,
         tagName: 'v%VERSION%',
         tagMessage: 'Version %VERSION%',

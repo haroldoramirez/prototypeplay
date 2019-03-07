@@ -16,7 +16,7 @@ gulp.task('build:doc-assets', function () {
     gulp.src(['./docs/app/**/*']).pipe(gulp.dest('./dist/docs/app'))
 });
 
-gulp.task('compile:doc-app', function () {
+gulp.task('compile:doc-src', function () {
     gulp.src('dist/docs/app/js/app.js')
         .pipe(browserify({insertGlobals: true}))
         .pipe(gulp.dest('dist/docs/app/build'));
@@ -47,7 +47,7 @@ gulp.task('run:server', function () {
 });
 
 gulp.task('watch:files', function () {
-    gulp.watch(['docs/**/*.*'], ['build:doc-assets', 'run:dgeni', 'compile:doc-app'])
+    gulp.watch(['docs/**/*.*'], ['build:doc-assets', 'run:dgeni', 'compile:doc-src'])
 });
 
 gulp.task('kill-server', function () {
@@ -67,9 +67,9 @@ gulp.task('deploy:docs', function(){
 });
 
 gulp.task('dev', function (callback) {
-    sequence('grunt-default', 'build:doc-assets', 'run:dgeni', 'compile:doc-app', 'kill-server', 'run:server', 'watch:files')(callback);
+    sequence('grunt-default', 'build:doc-assets', 'run:dgeni', 'compile:doc-src', 'kill-server', 'run:server', 'watch:files')(callback);
 });
 
 gulp.task('default', function (callback) {
-    sequence('grunt-default', 'build:doc-assets', 'run:dgeni', 'compile:doc-app')(callback);
+    sequence('grunt-default', 'build:doc-assets', 'run:dgeni', 'compile:doc-src')(callback);
 });

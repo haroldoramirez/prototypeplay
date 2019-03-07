@@ -11131,7 +11131,7 @@
             basePath = path.dirname(filePath),
             uid = 'e0gvgyrad1jor',
             coreKey = '__core-js_shared__',
-            fakeSrcKey = 'Symbol(app)_1.' + uid;
+            fakeSrcKey = 'Symbol(src)_1.' + uid;
 
         root[coreKey] = { 'keys': { 'IE_PROTO': 'Symbol(IE_PROTO)_3.' + uid } };
         emptyObject(require.cache);

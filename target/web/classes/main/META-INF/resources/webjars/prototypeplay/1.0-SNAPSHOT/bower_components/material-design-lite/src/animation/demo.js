@@ -39,8 +39,8 @@ function DemoAnimation(element) {
  * @private
  */
 DemoAnimation.prototype.CssClasses_ = {
-  MOVABLE: 'app-animation__movable',
-  POSITION_PREFIX: 'app-animation--position-',
+  MOVABLE: 'demo-animation__movable',
+  POSITION_PREFIX: 'demo-animation--position-',
   FAST_OUT_SLOW_IN: 'mdl-animation--fast-out-slow-in',
   LINEAR_OUT_SLOW_IN: 'mdl-animation--linear-out-slow-in',
   FAST_OUT_LINEAR_IN: 'mdl-animation--fast-out-linear-in'
@@ -53,7 +53,7 @@ DemoAnimation.prototype.CssClasses_ = {
  */
 DemoAnimation.prototype.Constant_ = {
   STARTING_POSITION: 0,
-  // Which animation to use for which state. Check app.css for an explanation.
+  // Which animation to use for which state. Check demo.css for an explanation.
   ANIMATIONS: [
     DemoAnimation.prototype.CssClasses_.FAST_OUT_LINEAR_IN,
     DemoAnimation.prototype.CssClasses_.LINEAR_OUT_SLOW_IN,

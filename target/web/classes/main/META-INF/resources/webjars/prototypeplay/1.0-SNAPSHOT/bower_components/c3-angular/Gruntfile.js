@@ -25,7 +25,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: [
-                    'app/*.js'
+                    'src/*.js'
                     ],
                 dest: '<%= pkg.name %>.js'
             }
@@ -37,7 +37,7 @@ module.exports = function (grunt) {
             },
             all: [
                 'Gruntfile.js',
-                'app/*.js'
+                'src/*.js'
             ]
         },
         uglify: {
@@ -81,7 +81,7 @@ module.exports = function (grunt) {
       jsdoc : {
         dist: {
           src: [
-            'app/**/*.js'
+            'src/**/*.js'
           ], 
           options: {
             destination: 'docs',

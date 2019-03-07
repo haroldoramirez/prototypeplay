@@ -62,7 +62,9 @@ Note that 80% of the open issues are actually not issues but "problem" due to de
 
 For work in IE < 9 need jQuery, just add:
 ```html
-app
+<!--[if lt IE 9]>
+  <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<![endif]-->
 ```
 
 ## Plugins

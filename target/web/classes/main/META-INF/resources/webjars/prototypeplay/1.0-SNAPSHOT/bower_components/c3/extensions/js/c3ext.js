@@ -290,7 +290,7 @@ if (typeof (Q) == "undefined") {
 
     Q.copy = function (src, target, options, depth) {
         ///<summary>Copies an object into a target object, recursively cloning any object or array in the way, overwrite=true will overwrite a primitive field value even if exists</summary>
-        ///<param name="app" />
+        ///<param name="src" />
         ///<param name="target" />
         ///<param name="options" type="Object">{ overwrite:false }</param>
         ///<returns type="Object">The copied object</returns>

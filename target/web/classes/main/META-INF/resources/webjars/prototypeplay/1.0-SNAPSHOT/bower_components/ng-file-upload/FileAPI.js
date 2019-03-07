@@ -2832,7 +2832,7 @@
 
 				xhr = document.createElement('div');
 				xhr.innerHTML = '<form target="'+ uid +'" action="'+ url +'" method="POST" enctype="multipart/form-data" style="position: absolute; top: -1000px; overflow: hidden; width: 1px; height: 1px;">'
-							+ '<iframe name="'+ uid +'" app="javascript:false;" onload="' + onloadFuncName + '()"></iframe>'
+							+ '<iframe name="'+ uid +'" src="javascript:false;" onload="' + onloadFuncName + '()"></iframe>'
 							+ (jsonp && (options.url.indexOf('=?') < 0) ? '<input value="'+ uid +'" name="'+jsonp+'" type="hidden"/>' : '')
 							+ '</form>'
 				;
@@ -3391,7 +3391,7 @@
 					el.innerHTML = _makeFlashHTML({
 						id: id
 						, src: _getUrl(api.flashUrl, 'r=' + api.version)
-//						, app: _getUrl('http://v.demidov.boom.corp.mail.ru/uploaderfileapi/FlashFileAPI.swf?1')
+//						, src: _getUrl('http://v.demidov.boom.corp.mail.ru/uploaderfileapi/FlashFileAPI.swf?1')
 						, wmode: opts.camera ? '' : 'transparent'
 						, flashvars: 'callback=' + (opts.onEvent || 'FileAPI.Flash.onEvent')
 						+ '&flashId='+ id
@@ -4016,14 +4016,14 @@
 
 		function _makeFlashHTML(opts){
 			return ('<object id="#id#" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="'+(opts.width || '100%')+'" height="'+(opts.height || '100%')+'">'
-				+ '<param name="movie" value="#app#" />'
+				+ '<param name="movie" value="#src#" />'
 				+ '<param name="flashvars" value="#flashvars#" />'
 				+ '<param name="swliveconnect" value="true" />'
 				+ '<param name="allowscriptaccess" value="always" />'
 				+ '<param name="allownetworking" value="all" />'
 				+ '<param name="menu" value="false" />'
 				+ '<param name="wmode" value="#wmode#" />'
-				+ '<embed flashvars="#flashvars#" swliveconnect="true" allownetworking="all" allowscriptaccess="always" name="#id#" app="#app#" width="'+(opts.width || '100%')+'" height="'+(opts.height || '100%')+'" menu="false" wmode="transparent" type="application/x-shockwave-flash"></embed>'
+				+ '<embed flashvars="#flashvars#" swliveconnect="true" allownetworking="all" allowscriptaccess="always" name="#id#" src="#src#" width="'+(opts.width || '100%')+'" height="'+(opts.height || '100%')+'" menu="false" wmode="transparent" type="application/x-shockwave-flash"></embed>'
 				+ '</object>').replace(/#(\w+)#/ig, function (a, name){ return opts[name]; })
 			;
 		}

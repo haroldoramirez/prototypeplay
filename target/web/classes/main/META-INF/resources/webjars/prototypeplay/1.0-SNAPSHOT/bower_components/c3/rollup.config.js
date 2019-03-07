@@ -2,7 +2,7 @@ import babel from 'rollup-plugin-babel';
 import pkg from './package.json'
 
 export default {
-    input: 'app/index.js',
+    input: 'src/index.js',
     output: {
         name: 'c3',
         format: 'umd',

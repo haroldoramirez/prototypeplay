@@ -34,7 +34,7 @@ module.exports = function(grunt) {
         copy: {
             styles: {
                 files: [{
-                    src: './app/styles/ng-table.less',
+                    src: './src/styles/ng-table.less',
                     dest: './dist/ng-table.less'
                 }]
             }
@@ -52,20 +52,20 @@ module.exports = function(grunt) {
         concat: {
             js: {
                 src: [
-                    'app/scripts/01-*.js',
-                    'app/scripts/02-*.js',
-                    'app/scripts/ngTableEventsChannel.js',
-                    'app/scripts/ngTableFilterConfig.js',
-                    'app/scripts/ngTableDefaultGetData.js',
-                    'app/scripts/ngTableGetDataBcShim.js',
-                    'app/scripts/03-*.js',
-                    'app/scripts/ngTableFilterRowController.js',
-                    'app/scripts/ngTableSorterRowController.js',
-                    'app/scripts/04-*.js',
-                    'app/scripts/05-*.js',
-                    'app/scripts/06-*.js',
+                    'src/scripts/01-*.js',
+                    'src/scripts/02-*.js',
+                    'src/scripts/ngTableEventsChannel.js',
+                    'src/scripts/ngTableFilterConfig.js',
+                    'src/scripts/ngTableDefaultGetData.js',
+                    'src/scripts/ngTableGetDataBcShim.js',
+                    'src/scripts/03-*.js',
+                    'src/scripts/ngTableFilterRowController.js',
+                    'src/scripts/ngTableSorterRowController.js',
+                    'src/scripts/04-*.js',
+                    'src/scripts/05-*.js',
+                    'src/scripts/06-*.js',
                     './.temp/scripts/views.js',
-                    'app/scripts/07-*.js'
+                    'src/scripts/07-*.js'
                 ],
                 dest: './dist/ng-table.js'
             }
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
         less: {
             css: {
                 files: {
-                    './dist/ng-table.css': 'app/styles/ng-table.less'
+                    './dist/ng-table.css': 'src/styles/ng-table.less'
                 }
             }
         },
@@ -89,21 +89,21 @@ module.exports = function(grunt) {
         },
         watch: {
             css: {
-                files: 'app/styles/*.less',
+                files: 'src/styles/*.less',
                 tasks: ['less'],
                 options: {
                     livereload: true
                 }
             },
             js: {
-                files: 'app/scripts/*.js',
+                files: 'src/scripts/*.js',
                 tasks: ['concat'],
                 options: {
                     livereload: true
                 }
             },
             html: {
-                files: 'app/ng-table/*.html',
+                files: 'src/ng-table/*.html',
                 tasks: ['ngTemplateCache', 'concat'],
                 options: {
                     livereload: true
@@ -128,10 +128,10 @@ module.exports = function(grunt) {
         ngTemplateCache: {
             views: {
                 files: {
-                    './.temp/scripts/views.js': 'app/ng-table/**/*.html'
+                    './.temp/scripts/views.js': 'src/ng-table/**/*.html'
                 },
                 options: {
-                    trim: 'app/',
+                    trim: 'src/',
                     module: 'ngTable'
                 }
             }

@@ -1,5 +1,5 @@
 /**
- * @fileoverview This app is used for MarkerClusterer. It will show 100 markers
+ * @fileoverview This demo is used for MarkerClusterer. It will show 100 markers
  * using MarkerClusterer and count the time to show the difference between using
  * MarkerClusterer and without MarkerClusterer.
  * @author Luke Mahe (v2 author: Xiaoxi Wu)
@@ -107,10 +107,10 @@ speedTest.markerClickFunction = function(pic, latlng) {
 
     var infoHtml = '<div class="info"><h3>' + title +
       '</h3><div class="info-body">' +
-      '<a href="' + url + '" target="_blank"><img app="' +
+      '<a href="' + url + '" target="_blank"><img src="' +
       fileurl + '" class="info-img"/></a></div>' +
       '<a href="http://www.panoramio.com/" target="_blank">' +
-      '<img app="http://maps.google.com/intl/en_ALL/mapfiles/' +
+      '<img src="http://maps.google.com/intl/en_ALL/mapfiles/' +
       'iw_panoramio.png"/></a><br/>' +
       '<a href="' + pic.owner_url + '" target="_blank">' + pic.owner_name +
       '</a></div></div>';

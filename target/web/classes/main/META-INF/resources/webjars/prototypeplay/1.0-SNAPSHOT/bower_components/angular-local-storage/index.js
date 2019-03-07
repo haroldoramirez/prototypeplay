@@ -1,2 +1,2 @@
-require('./app/angular-local-storage.js');
+require('./src/angular-local-storage.js');
 module.exports = 'LocalStorageModule';

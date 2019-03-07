@@ -21,7 +21,7 @@ var ngTableDoc = angular.module('ngTableDoc', ['ui.router', 'ngMessages'])
                         }
                     }
                 })
-                // note: runnable examples are not yet implemented (instead we link to external app site)
+                // note: runnable examples are not yet implemented (instead we link to external demo site)
                 .state('examples',{
                     url:'/docs/api/examples',
                     templateUrl:'/partials/examples/'

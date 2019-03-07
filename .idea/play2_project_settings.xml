@@ -13,6 +13,7 @@
         <entry key="root">
           <value>
             <ProjectSettingsEntry>
+              <option name="sourceDir" value="C:\Users\haroldo\projetos\prototypeplay\app" />
               <option name="confDir" value="C:\Users\haroldo\projetos\prototypeplay\app" />
               <option name="templateImports">
                 <list>
