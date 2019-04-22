@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/haroldo/projetos/prototypeplay/conf/routes
-// @DATE:Sat Mar 02 11:15:14 BRT 2019
+// @SOURCE:/home/haroldo.nobrega/projetos/prototypeplay/conf/routes
+// @DATE:Mon Apr 22 17:47:13 BRT 2019
 
 package router
 

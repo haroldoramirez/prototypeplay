@@ -1,8 +1,5 @@
 package models;
 
-import io.ebean.Model;
-import play.data.validation.Constraints;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
@@ -10,11 +7,11 @@ import javax.persistence.TemporalType;
 import java.util.Calendar;
 
 /**
- * Pais entity managed by Ebean
+ * Pais entity
  */
 
 @Entity
-public class Pais extends Model {
+public class Pais extends BaseModel {
 
     private static final long serialVersionUID = 1L;
 

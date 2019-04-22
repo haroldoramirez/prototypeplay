@@ -1,4 +1,4 @@
-name := """prototypeplay"""
+name := """prototypeplaycib"""
 organization := "org.pumba"
 
 version := "1.0-SNAPSHOT"

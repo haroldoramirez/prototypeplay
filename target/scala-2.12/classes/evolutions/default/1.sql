@@ -4,10 +4,12 @@
 # --- !Ups
 
 create table pais (
+  id                            bigint auto_increment not null,
   nome                          varchar(100) not null,
   data_cadastro                 timestamp not null,
   data_alteracao                timestamp not null,
-  constraint uq_pais_nome unique (nome)
+  constraint uq_pais_nome unique (nome),
+  constraint pk_pais primary key (id)
 );
 
 
