@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="sbt 1" modules="prototypeplay_9614" />
+    <profile name="sbt 1" modules="prototypeplay_1487" />
     <profile name="sbt 2" modules="prototypeplay,prototypeplaycib">
       <option name="deprecationWarnings" value="true" />
       <option name="uncheckedWarnings" value="true" />
