@@ -1,5 +1,6 @@
 name := """prototypeplay"""
 organization := "org.pumba"
+maintainer := "haroldoramirez@gmail.com"
 
 version := "1.0-SNAPSHOT"
 

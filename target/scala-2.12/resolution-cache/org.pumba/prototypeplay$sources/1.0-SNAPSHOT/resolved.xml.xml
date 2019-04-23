@@ -4,7 +4,7 @@
 		module="prototypeplay$sources"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20190423095145"
+		publication="20190423103948"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
